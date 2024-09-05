@@ -42,6 +42,16 @@ function App() {
     setPlaylistSongs((playlist) => playlist.filter((songs) => songs.id !== song.id))
   }
 
+  const [playlist, setPlaylist] = useState('New Playlist');
+
+  const namePlaylist = (name) => {
+    setPlaylist(name);
+  }
+  console.log(playlist)
+
+  const savePlaylist = () => {
+
+  };
 
 //console.log(playlistTracks)
 
@@ -49,8 +59,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <SearchResults searchResults={searchResults} addSong={addSong} />
-        <Playlist playlistSongs={playlistSongs} removeSong={removeSong} />
-    
+        <Playlist playlistSongs={playlistSongs} removeSong={removeSong} namePlaylist={namePlaylist} />
       </header>
     </div>
   );
