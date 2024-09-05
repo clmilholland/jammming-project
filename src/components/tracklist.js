@@ -1,13 +1,19 @@
 import React from 'react';
 import Track from './track';
 
-const TrackList = ({searchResults}) => {
-    console.log(searchResults)
+const TrackList = ({songs, addSong, removeSong, forRemoval}) => {
+    console.log(removeSong)
     return (
         <div>
-            {searchResults.map((searchResult) => {
+            {songs.map((song) => {
                 return (
-                    <Track key={searchResult.id} searchResult={searchResult}/>
+                    <Track 
+                        key={song.id} 
+                        song={song} 
+                        addSong={addSong}
+                        removeSong={removeSong}
+                        forRemoval={forRemoval}
+                    />
                 )
             })}
         </div>

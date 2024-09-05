@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import TrackList from './tracklist';
 
 
-const SearchResults = ({searchResults}) => {
-    console.log(searchResults)
+const SearchResults = ({searchResults, addSong, removeSong}) => {
     return (
         <div>
            <h2>Results</h2>
-           <TrackList  searchResults={searchResults}/>
+           <TrackList  songs={searchResults} addSong={addSong} removeSong={removeSong}/>
         </div>
     )
 
