@@ -3,35 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 import Playlist from './components/playlist';
 import SearchResults from './components/searchResults';
+import SearchBar from './components/searchBar';
+import Spotify from './utilities/spotify';
 
 function App() {
 
-  const [searchResults, setSearchResults] = useState([
-    {
-        name: 'White Iverson',
-        artist: 'Post Malone',
-        album: 'Stoney-Delux',
-        id: 1
-    },
-    {
-        name: 'Georgia Time',
-        artist: 'Riley Green',
-        album: 'Georgia Time',
-        id: 2
-    },
-    {
-        name: "Fix'n To Break",
-        artist: 'Bailey Zimmerman',
-        album: 'Religiously',
-        id: 3
-    },
-    {
-        name: '28',
-        artist: 'Zach Bryan',
-        album: 'The Great American Bar Scene',
-        id: 4
-    }
-]);
+  const [searchResults, setSearchResults] = useState([]);
+  
+  const search = (userInput) => {
+    Spotify.search(userInput).then(setSearchResults); 
+  }
+    
+ 
+  
 
   const [playlistSongs, setPlaylistSongs] = useState([]);
   
@@ -58,8 +42,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <SearchBar setSearch={search}/>
         <SearchResults searchResults={searchResults} addSong={addSong} />
-        <Playlist playlistSongs={playlistSongs} removeSong={removeSong} namePlaylist={namePlaylist} />
+        <Playlist 
+          playlistSongs={playlistSongs} 
+          removeSong={removeSong} 
+          namePlaylist={namePlaylist} 
+          savePlaylist={savePlaylist}
+        />
       </header>
     </div>
   );
