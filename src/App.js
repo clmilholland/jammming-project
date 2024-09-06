@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Playlist from './components/playlist';
-import SearchResults from './components/searchResults';
-import SearchBar from './components/searchBar';
+import Playlist from './components/playlist/playlist';
+import SearchResults from './components/searchResult/searchResults';
+import SearchBar from './components/searchbar/searchBar';
 import Spotify from './utilities/spotify';
 
 function App() {
@@ -14,9 +14,6 @@ function App() {
     Spotify.search(userInput).then(setSearchResults); 
   }
     
- 
-  
-
   const [playlistSongs, setPlaylistSongs] = useState([]);
   
   const addSong = (song) => {

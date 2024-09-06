@@ -1,5 +1,5 @@
 import React from 'react';
-import Track from './track';
+import Track from '../track/track';
 
 const TrackList = ({songs, addSong, removeSong, forRemoval}) => {
     return (

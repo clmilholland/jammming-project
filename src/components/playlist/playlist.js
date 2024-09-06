@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackList from './tracklist';
+import TrackList from '../tracklist/tracklist';
 
 const Playlist = ({playlistSongs, removeSong, namePlaylist, savePlaylist}) => {
 
