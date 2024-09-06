@@ -37,17 +37,32 @@ function App() {
 //console.log(playlistTracks)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <SearchBar setSearch={search}/>
-        <SearchResults searchResults={searchResults} addSong={addSong} />
+    <div className="app">
+      <header className="appHeader">
+        <h1>Jammming</h1>
+        <h5>- a Spotify extension -</h5>
+      </header>
+      <body className='appBody'>
+        <div className='searchBar'>
+          <SearchBar 
+          setSearch={search}
+          />
+        </div>
+        <div className='searchResults'>
+        <SearchResults 
+        searchResults={searchResults} 
+        addSong={addSong} 
+        />
+        </div>
+        <div className='playlist'>
         <Playlist 
           playlistSongs={playlistSongs} 
           removeSong={removeSong} 
           namePlaylist={namePlaylist} 
           savePlaylist={savePlaylist}
         />
-      </header>
+        </div>
+      </body>
     </div>
   );
 }

@@ -2,9 +2,11 @@ import React from 'react';
 import Track from '../track/track';
 
 const TrackList = ({songs, addSong, removeSong, forRemoval}) => {
+    
     return (
         <div>
-            {songs.map((song) => {
+            {
+                songs.map((song) => {
                 return (
                     <Track 
                         key={song.id} 

@@ -1,0 +1,26 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: rgba(1, 12, 63, 0.4);
+    box-shadow: 0px 4px 4px 5px rgba(168, 126, 255, .3);
+}
+
+.container h2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.trackContainer {
+    overflow-y: scroll;
+    height: 35rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+::-webkit-scrollbar {
+    color: transparent;
+    width: 0px;
+}

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+import styles from './track.module.css';
 
 
 const Track = ({song, addSong, removeSong, forRemoval}) => {
-
+    
     const addingSong = (event) => {
         addSong(song);
     }
@@ -14,22 +15,22 @@ const Track = ({song, addSong, removeSong, forRemoval}) => {
     const addRemove = () => {
         if (forRemoval) {
             return (
-                <button onClick={removingSong}>Remove</button>
+                <button onClick={removingSong} className={styles.removeButton} />
             )
         } else {
             return (
-                <button onClick={addingSong}>Add</button>
+                <button onClick={addingSong} className={styles.addButton} />
             )
         }
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <h3>{song.name}</h3>
             <p>
                 {song.artist} | {song.album}
             </p>
-            {addRemove()}
+            <div className={styles.buttonContainer}>{addRemove()}</div>
         </div>
     )
 };
