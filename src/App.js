@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Playlist from './components/playlist/playlist';
@@ -10,9 +10,9 @@ function App() {
 
   const [searchResults, setSearchResults] = useState([]);
   
-  const search = (userInput) => {
+  const search = useCallback((userInput) => {
     Spotify.search(userInput).then(setSearchResults); 
-  }
+  }, []);
     
   const [playlistSongs, setPlaylistSongs] = useState([]);
   
@@ -28,13 +28,15 @@ function App() {
   const namePlaylist = (name) => {
     setPlaylist(name);
   }
-  console.log(playlist)
+  
 
   const savePlaylist = () => {
-
+    const trackUris = playlistSongs.map((song) => song.uri);
+    Spotify.savePlaylist(playlist, trackUris).then(() => {
+      setPlaylist('New Playlist');
+      setPlaylistSongs([]);
+    })
   };
-
-//console.log(playlistTracks)
 
   return (
     <div className="app">

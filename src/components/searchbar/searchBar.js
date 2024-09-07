@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import styles from './searchbar.module.css';
 
 const SearchBar = ({setSearch}) => {
@@ -8,18 +8,22 @@ const SearchBar = ({setSearch}) => {
     const handleSearch = (event) => {
         event.preventDefault();
         setUserInput(event.target.value);
+        
     };
 
-    const search = () => {
+    const search = (event) => {
+        event.preventDefault();
         setSearch(userInput);
     }
 
+    
+
     return (
         <div className={styles.container}>
-                <input type="text"  onChange={handleSearch} placeholder="Search for a song" className={styles.input}/>
+                <input type="text" value={userInput} onChange={handleSearch} placeholder="Search for a song" className={styles.input}/>
                 <button onClick={search} className={styles.button}>Search</button> 
         </div>
     )
 };
 
-export default SearchBar;
+export default SearchBar; 
