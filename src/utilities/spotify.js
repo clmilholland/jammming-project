@@ -1,6 +1,6 @@
 import React from "react";
 
-const clientId = 'db2b5c0317d04f3db823a2ed3a67af40';
+const clientId = '';
 const redirectUri = 'http://localhost:3000/'
 let accessToken;
 
